@@ -3,7 +3,6 @@ const videoToggle = document.querySelector('#toggle-video');
 const pauseIcon = videoToggle.querySelector('.pause-icon');
 const resumeIcon = videoToggle.querySelector('.resume-icon');
 const autoplayNote = document.querySelector('#autoplay-note');
-const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
 const soundToggle = document.querySelector('#toggle-sound');
 const videoError = document.querySelector('.video-error');
 const letter = document.querySelector('#letter');
@@ -20,7 +19,7 @@ const messages = [
 ];
 let messageIndex = 0;
 
-// The user requested a quiet, automatic loop. Reduced motion starts paused.
+// Start the requested quiet loop; the pause control remains available.
 video.controls = false;
 video.muted = true;
 videoToggle.hidden = false;
@@ -42,8 +41,8 @@ video.addEventListener('volumechange', updateSoundControl);
 updateSoundControl();
 
 function updatePlaybackControl() {
-  pauseIcon.hidden = video.paused;
-  resumeIcon.hidden = !video.paused;
+  pauseIcon.toggleAttribute('hidden', video.paused);
+  resumeIcon.toggleAttribute('hidden', !video.paused);
   videoToggle.setAttribute('aria-label', video.paused ? 'Включить котиков' : 'Приостановить котиков');
 }
 
@@ -79,16 +78,8 @@ video.querySelector('source').addEventListener('error', () => {
   videoError.hidden = false;
 });
 
-if (motionPreference.matches) {
-  video.autoplay = false;
-  video.pause();
-} else {
-  startVideo();
-}
+startVideo();
 updatePlaybackControl();
-motionPreference.addEventListener('change', (event) => {
-  if (event.matches) video.pause();
-});
 
 document.querySelector('#more-warmth').addEventListener('click', () => {
   messageIndex = (messageIndex + 1) % messages.length;
@@ -111,5 +102,5 @@ letter.addEventListener('click', (event) => {
 });
 letter.addEventListener('close', () => {
   letterButton.focus({ preventScroll: true });
-  if (resumeAfterLetter && !motionPreference.matches) startVideo();
+  if (resumeAfterLetter) startVideo();
 });
