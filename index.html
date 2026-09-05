@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8f7f2">
+  <meta name="description" content="Немного котиков, нежности и тепла — только для тебя.">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Выздоравливай, мой котик ♡</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='.9em' font-size='56'%3E♡%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <div class="postcard">
+    <header class="dedication">тебе, с любовью <svg class="heart icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M20.4 4.6a5.5 5.5 0 0 0-7.8 0L12 5.2l-.6-.6a5.5 5.5 0 0 0-7.8 7.8L12 21l8.4-8.6a5.5 5.5 0 0 0 0-7.8Z"/></svg></header>
+    <main>
+      <h1>Выздоравливай,<br>мой котик</h1>
+      <p class="intro">Отдыхай, никуда не спеши.<br>Я рядом. И котики тоже.</p>
+
+      <figure class="cat-film">
+        <div class="video-wrap">
+          <video id="cat-video" controls autoplay muted loop playsinline preload="auto" poster="./assets/cats-clouds-poster.jpg" aria-label="Милое видео с танцующими котиками среди облаков">
+            <source src="./assets/cats-clouds.mp4" type="video/mp4">
+            Твой браузер не поддерживает видео. <a href="./assets/cats-clouds.mp4">Открыть ролик</a>.
+          </video>
+          <button id="toggle-video" class="video-toggle" type="button" aria-label="Приостановить котиков" hidden><svg class="pause-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M8 5v14M16 5v14"/></svg><svg class="resume-icon" aria-hidden="true" viewBox="0 0 24 24" hidden><path d="m9 5 11 7-11 7Z"/></svg></button>
+        </div>
+        <p class="video-error" role="status" hidden>Видео не загрузилось. <a href="./assets/cats-clouds.mp4">Открыть ролик отдельно</a></p>
+        <p id="autoplay-note" class="autoplay-note" role="status" hidden>Нажми на значок воспроизведения, чтобы включить котиков.</p>
+        <button id="toggle-sound" class="sound-toggle" type="button" aria-pressed="false" hidden><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M11 5 6 9H3v6h3l5 4V5Z"/><path class="sound-off" d="m16 9 6 6m0-6-6 6"/><path class="sound-on" d="M15 8a6 6 0 0 1 0 8m3-11a10 10 0 0 1 0 14" hidden/></svg><span>Включить звук</span></button>
+        <figcaption>отряд поддержки уже выехал</figcaption>
+      </figure>
+
+      <section class="warmth" aria-label="Немного тепла">
+        <p id="warm-message" class="warm-message" aria-live="polite" aria-atomic="true">ты мой любимый человек.<br>даже в режиме картошечки.</p>
+        <button id="more-warmth" class="text-button" type="button"><span>Ещё немного тепла</span><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M20 7v5h-5M4 17v-5h5M5.1 8a8 8 0 0 1 13-3L20 7M4 17l1.9 2a8 8 0 0 0 13-3"/></svg></button>
+      </section>
+
+      <button id="open-letter" class="letter-button" type="button" aria-haspopup="dialog">Тебе письмо<svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m3 5 9 8 9-8"/></svg></button>
+      <noscript><p class="noscript-note">Выздоравливай, мой котик. Ты очень дорога мне. Я рядом и обнимаю тебя — бережно-бережно.</p></noscript>
+    </main>
+    <footer>обнимаю. бережно-бережно.</footer>
+  </div>
+
+  <dialog id="letter" aria-labelledby="letter-title">
+    <div class="letter-inner">
+      <button class="close-letter" type="button" aria-label="Закрыть письмо"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></svg></button>
+      <svg class="letter-heart heart icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M20.4 4.6a5.5 5.5 0 0 0-7.8 0L12 5.2l-.6-.6a5.5 5.5 0 0 0-7.8 7.8L12 21l8.4-8.6a5.5 5.5 0 0 0 0-7.8Z"/></svg>
+      <h2 id="letter-title">Мой котик,</h2>
+      <figure class="our-photo">
+        <img src="./assets/our-photo.jpg" width="960" height="1280" alt="Наше совместное фото на солнце со сладкой ватой" loading="lazy">
+        <figcaption>моё любимое «мы».</figcaption>
+      </figure>
+      <p>хочется просто укутать тебя в самый мягкий плед, включить что-нибудь милое и побыть рядом.</p>
+      <p>Тебе не нужно сейчас быть бодрой, весёлой или какой-то ещё. Можно просто быть собой. Ты очень дорога мне — в любой день и в любом настроении.</p>
+      <p>Пусть этот маленький уголок интернета напоминает: я думаю о тебе. И очень-очень тебя обнимаю.</p>
+      <p class="letter-sign">Выздоравливай, мой котик.<br>Я рядом.</p>
+      <button class="letter-button close-letter-action" type="button">Обнимаю в ответ <span aria-hidden="true">♡</span></button>
+    </div>
+  </dialog>
+</body>
+</html>
